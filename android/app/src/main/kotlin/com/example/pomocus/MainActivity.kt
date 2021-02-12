@@ -1,0 +1,6 @@
+package com.example.pomocus
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
