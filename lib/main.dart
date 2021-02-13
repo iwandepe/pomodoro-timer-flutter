@@ -23,10 +23,19 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  var _onMode = 'Pomodoro';
+
+  void _chooseMode(String mode) {
+    setState(() {
+      _onMode = mode;
+      print(_onMode);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: SettingDrawer(),
+      endDrawer: SettingDrawer(), 
 
       // Application bar
       appBar: AppBar(
@@ -46,15 +55,26 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ],
-        backgroundColor: Color(0xFFDB524D),
+        backgroundColor: Color(_onMode == 'Pomodoro'
+            ? 0xFFDB524D
+            : _onMode == 'Short Break'
+                ? 0xFF488E91
+                : 0xFF437EA8),
       ),
-      backgroundColor: Color(0xFFDB524D),
+      backgroundColor: Color(_onMode == 'Pomodoro'
+          ? 0xFFDB524D
+          : _onMode == 'Short Break'
+              ? 0xFF488E91
+              : 0xFF437EA8),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             // Display timer
-            Content(),
+            Content(
+              onMode: _onMode,
+              chooseMode: _chooseMode,
+            ),
 
             // Display what is working
             Container(
