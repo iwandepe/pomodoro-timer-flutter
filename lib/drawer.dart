@@ -8,16 +8,16 @@ class SettingDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            child: Text('Drawer Header'),
+            child: Text('Menu'),
           ),
           ListTile(
-            title: Text('Drawer 1'),
+            title: Text('Report'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: Text('Drawer 2'),
+            title: Text('Setting'),
             onTap: () {
               Navigator.pop(context);
             },

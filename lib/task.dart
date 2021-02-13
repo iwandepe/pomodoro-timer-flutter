@@ -21,7 +21,7 @@ class _TaskState extends State<Task> {
                     Text(
                       'Tasks',
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 22,
                         color: Colors.white,
                       ),
                     ),
@@ -39,15 +39,30 @@ class _TaskState extends State<Task> {
                   ),
                 ),
                 Container(
-                  color: Colors.white,
+                  // color: Colors.white,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(3),
+                    color: Colors.white,
+                  ),
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.only(top: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Tasks',
-                        style: TextStyle(
-                          fontSize: 26,
-                          color: Colors.black,
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(Icons.ac_unit),
+                            ),
+                            TextSpan(
+                              text: ' Pomodoro timer project with flutter',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       IconButton(
@@ -57,21 +72,75 @@ class _TaskState extends State<Task> {
                     ],
                   ),
                 ),
-                LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints){
-                    return FlatButton(
+                Container(
+                  // color: Colors.white,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(3),
+                    color: Colors.white,
+                  ),
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.only(top: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(Icons.ac_unit),
+                            ),
+                            TextSpan(
+                              text: ' Finding Bugs!',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.menu),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+                LayoutBuilder(builder:
+                    (BuildContext context, BoxConstraints constraints) {
+                  return Container(
+                    margin: EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+                    child: FlatButton(
+                      padding: EdgeInsets.all(20),
                       onPressed: () {},
                       minWidth: constraints.maxWidth,
-                      child: Text(
-                        'Add Task',
-                        style: TextStyle(
-                          color: Colors.grey,
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(Icons.add),
+                            ),
+                            TextSpan(
+                              text: ' Add Task!',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
                         ),
-                        textAlign: TextAlign.center,
                       ),
-                    );
-                  }
-                ),
+                      // Text(
+                      //   'Add Task',
+                      //   style: TextStyle(
+                      //     color: Colors.grey,
+                      //   ),
+                      //   textAlign: TextAlign.center,
+                      // ),
+                    ),
+                  );
+                }),
               ],
             ),
           ),
